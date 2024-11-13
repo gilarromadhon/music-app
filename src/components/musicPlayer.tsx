@@ -12,7 +12,7 @@ import { removeTrack, togglePlayPause as togglePlayPauseRedux } from "../store/t
 import { likedSong, unlikedSong } from "../store/likedSlice";
 import { useGlobalAudioPlayer } from "react-use-audio-player";
 import { formatDuration } from "../lib/utils/misc";
-import { Progress, Slider, Tooltip } from "@radix-ui/themes";
+import { Slider, Tooltip } from "@radix-ui/themes";
 import { Song } from "../lib/types/song";
 import { togglePlayPause as togglePlay } from "../store/listSong/recommendSlice";
 
@@ -48,14 +48,12 @@ export default function MusicPlayer() {
 
   useEffect(() => {
     if (currentTrack?.title) {
-      console.log(currentTrack.music);
       load(currentTrack.music || "audio/bernadya.mp3", {
         autoplay: true,
         format: "mp3",
-        
       });
     }
-  }, [currentTrack?.title]);
+  }, [load, currentTrack?.music, currentTrack?.title]);
 
   useEffect(() => {
     if (currentTrack?.isPlay) {
@@ -63,10 +61,12 @@ export default function MusicPlayer() {
     } else {
       stop();
     }
-  }, [currentTrack?.isPlay]);
+  }, [currentTrack?.isPlay, play, stop]);
 
   useEffect(() => {
-    getPosition && setPosition(getPosition());
+    if (getPosition) {
+        setPosition(getPosition());
+    }
   }, [getPosition]);
 
   useEffect(() => {

@@ -4,9 +4,9 @@ import React, { useState, useRef, useEffect } from "react"; // Import React hook
 import Image from "next/image"; // Import Next.js Image component
 import { BiPauseCircle, BiPlayCircle, BiRewindCircle } from "react-icons/bi";
 import { BsForwardFill } from "react-icons/bs";
+import { Progress } from "@radix-ui/themes";
 
 // Define types for the component props and state
-interface AudioPlayerProps {}
 
 // Define the Track interface
 interface Track {
@@ -15,7 +15,7 @@ interface Track {
   src: string;
 }
 
-const Settings: React.FC<AudioPlayerProps> = () => {
+const Settings: React.FC = () => {
   const [tracks, setTracks] = useState<Track[]>([]); // State to manage the list of tracks
   const [currentTrackIndex, setCurrentTrackIndex] = useState<number>(0); // State to manage the current track index
   const [isPlaying, setIsPlaying] = useState<boolean>(false); // State to manage the play/pause status
@@ -114,7 +114,7 @@ const Settings: React.FC<AudioPlayerProps> = () => {
               <p className="text-muted-foreground">{tracks[currentTrackIndex]?.artist || "Person Name"}</p>
             </div>
             <div className="w-full">
-              {/* <Progress value={progress} /> */}
+              <Progress value={progress} />
               <div className="flex justify-between text-sm text-muted-foreground">
                 <span>{formatTime(currentTime)}</span>
                 <span>{formatTime(duration)}</span>

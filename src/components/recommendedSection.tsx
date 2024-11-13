@@ -29,7 +29,7 @@ export default function RecommendedSection() {
     dispatch(togglePlay(track.id));
   };
 
-  const scrollContainerRef = useRef<any>(null);
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
 
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
@@ -54,7 +54,7 @@ export default function RecommendedSection() {
       </Flex>
 
       <div className="scroll-container flex overflow-x-auto gap-4 px-4 pb-4" ref={scrollContainerRef} style={{ scrollBehavior: "smooth" }}>
-        {recommendList.map((item, index) => (
+        {recommendList.map((item) => (
           <div key={item.id} className="bg-white dark:bg-zinc-950 shadow-lg flex flex-col p-1 rounded-2xl min-w-44 max-w-44 h-56 select-none">
             <div className="relative rounded-xl aspect-square w-full overflow-hidden bg-cover bg-no-repeat">
               <Image src={item.image} alt="album" className="transition duration-300 ease-in-out hover:scale-110" />

@@ -11,7 +11,7 @@ import { RootState } from "../../store/store";
 import { splitArray } from "../../lib/utils/misc";
 import Slider from "react-slick";
 import MusicPlayer from "../musicPlayer";
-import { Flex, Switch, Tooltip } from "@radix-ui/themes";
+import { Flex, Tooltip } from "@radix-ui/themes";
 import { useTheme } from "next-themes";
 import { IoSunnyOutline } from "react-icons/io5";
 import { BsFillMoonStarsFill } from "react-icons/bs";
@@ -26,7 +26,7 @@ export default function Sidebar() {
 
   const itemGroups = splitArray(likedTrack, 3);
 
-  let sliderRef = useRef<Slider>(null);
+  const sliderRef = useRef<Slider>(null);
   const next = () => {
     sliderRef.current?.slickNext();
   };
@@ -81,8 +81,13 @@ export default function Sidebar() {
               <Slider className="w-full" ref={sliderRef} {...settings}>
                 {itemGroups.map((group, index) => (
                   <div key={index} className="min-w-full h-56">
+                    {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                     {group.map((item: any, index: number) => (
-                      <div key={index} onClick={() => handlePlay(item)} className={`flex flex-row flex-wrap items-center gap-4 px-4 py-2 cursor-pointer hover:bg-zinc-200 dark:hover:bg-zinc-900 ${index === likedTrack.length - 1 ? "" : "border-b-2 border-zinc-100 dark:border-zinc-900"}`}>
+                      <div
+                        key={index}
+                        onClick={() => handlePlay(item)}
+                        className={`flex flex-row flex-wrap items-center gap-4 px-4 py-2 cursor-pointer hover:bg-zinc-200 dark:hover:bg-zinc-900 ${index === likedTrack.length - 1 ? "" : "border-b-2 border-zinc-100 dark:border-zinc-900"}`}
+                      >
                         <Image src={item.image} alt="album" className="rounded-md" width={48} height={48} />
                         <div className="flex-1 truncate">
                           <h1 className="font-semibold text-sm leading-tight">{item.title}</h1>

@@ -1,15 +1,11 @@
 "use client"
 import React from 'react'
-import Image from "next/image";
-import Logo from "../../../public/logo.svg";
 import Link from "next/link";
 import { GoGear, GoHomeFill } from 'react-icons/go';
 import { RiCompassDiscoverLine } from 'react-icons/ri';
 import { LuLibrary } from 'react-icons/lu';
-import { FaSquarePlus } from 'react-icons/fa6';
 import { IoMdHeartEmpty } from 'react-icons/io';
 import { usePathname } from 'next/navigation';
-import { PiPlus, PiPlusBold, PiPlusFill } from 'react-icons/pi';
 import { TiPlus } from 'react-icons/ti';
 import { BiLogoSoundcloud } from 'react-icons/bi';
 import { Em } from '@radix-ui/themes';

@@ -1,13 +1,12 @@
 "use client";
 
 import Terlintas from "../../public/album/terdalam.jpeg"
-import { useState } from "react";
 import Topbar from "../components/topbar";
 import TopCardSong from "../components/topSongCard";
 import RecommendedSection from "@/components/recommendedSection";
 
 export default function Home() {
-  const [globalList, setGlobalList] = useState([
+  const globalList = [
     {
       id: 1,
       image: Terlintas,
@@ -40,9 +39,9 @@ export default function Home() {
       isDownload: false,
       isLike: false,
     },
-  ]);
+  ];
 
-  const [indonesiaList, setIndonesiaList] = useState([
+  const indonesiaList = [
     {
       id: 4,
       image: Terlintas,
@@ -75,7 +74,7 @@ export default function Home() {
       isDownload: false,
       isLike: true,
     },
-  ]);
+  ];
 
 
   // function play () {

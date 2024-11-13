@@ -8,7 +8,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Navbar from "../components/site-navbar";
 import Sidebar from "../components/site-sidebar";
-import DarkModeContextProvider from "@/context/darkMode";
 import { ThemeProvider } from "next-themes";
 
 const geistSans = localFont({
@@ -38,7 +37,6 @@ export default function RootLayout({
         <Theme>
           <ThemeProvider  attribute="class" defaultTheme="dark" disableTransitionOnChange>
             <StoreProvider>
-              {/* <DarkModeContextProvider> */}
               <div className="flex flex-row flex-1 h-screen text-white" style={{ fontFamily: "Poppins" }}>
                 <Navbar />
                 <div className="flex-1 w-7/12">
@@ -46,7 +44,6 @@ export default function RootLayout({
                 </div>
                 <Sidebar />
               </div>
-              {/* </DarkModeContextProvider> */}
             </StoreProvider>
           </ThemeProvider>
         </Theme>
