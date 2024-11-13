@@ -14,8 +14,52 @@
   }
 }
 
+[data-theme='dark'] {
+  --background: rgb(183, 47, 47);
+  --foreground: white;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+.scroll-container {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+input:focus {
+    outline: none;
+}
+
+h1 {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Animation for running text on hover */
+.running-text {
+  display: inline-block;
+  margin-bottom: -6px;
+  transition: all 0.2s ease-in-out;
+}
+
+.running-text:hover {
+  animation: scroll-text 5s linear infinite;
+}
+
+@keyframes scroll-text {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
