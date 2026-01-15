@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Navbar from "../components/site-navbar";
 import Sidebar from "../components/site-sidebar";
 import { ThemeProvider } from "next-themes";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -35,7 +36,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Theme>
-          <ThemeProvider  attribute="class" defaultTheme="dark" disableTransitionOnChange>
+          <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
             <StoreProvider>
               <div className="flex flex-row flex-1 h-screen text-white" style={{ fontFamily: "Poppins" }}>
                 <Navbar />
@@ -46,6 +47,7 @@ export default function RootLayout({
               </div>
             </StoreProvider>
           </ThemeProvider>
+          <SpeedInsights />
         </Theme>
       </body>
     </html>
