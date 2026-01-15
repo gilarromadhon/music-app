@@ -47,8 +47,8 @@ export default function RootLayout({
               </div>
             </StoreProvider>
           </ThemeProvider>
-          <SpeedInsights />
         </Theme>
+        <SpeedInsights />
       </body>
     </html>
   );
